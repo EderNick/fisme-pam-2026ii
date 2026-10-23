@@ -1,9 +1,9 @@
-import { nowPlayingAction } from "@/services/actions/now_playing.action";
 import { Slot } from "expo-router";
+import '../assets/global.css';
 
 const RootLayout = () => {
 
-    nowPlayingAction();
+    // nowPlayingAction();
 
     return (
         <Slot />
