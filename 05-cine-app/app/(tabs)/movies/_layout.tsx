@@ -4,7 +4,7 @@ const MoviesLayout = () => {
     return (
         <Stack>
             <Stack.Screen name='index' options={{ headerShown: false, }} />
-            <Stack.Screen name='[id]' options={{ headerShown: true, }} />
+            <Stack.Screen name='[id]' options={{ title: "Detalle de película", headerShown: true, }} />
         </Stack>
     )
 }

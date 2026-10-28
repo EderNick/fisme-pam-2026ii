@@ -7,3 +7,8 @@ export interface Movie {
     poster: string
     backdrop: string,
 }
+
+export interface MovieDetail extends Movie {
+    votes: number,
+    originalTitle: string,
+}

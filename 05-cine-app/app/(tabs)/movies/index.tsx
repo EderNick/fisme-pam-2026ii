@@ -1,7 +1,8 @@
 import { Movie } from '@/infrastructure/interfaces/movie.interface';
 import { nowPlayingAction } from '@/services/actions/now_playing.action';
+import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Image, Pressable, Text, View } from 'react-native';
 
 const MoviesScreen = () => {
 
@@ -54,13 +55,21 @@ const MoviesScreen = () => {
                 data={movies}
                 keyExtractor={(m) => String(m.id)}
                 renderItem={({ item }) => (
-                    <View className='w-1/2 p-2'>
-                        <Image
-                            source={{ uri: item.poster }}
-                            className='w-full aspect-[2/3] rounded-xl' />
-                        <Text className='font-bold'>{item.title}</Text>
-                        <Text className='text-slate-400'>{item.releaseDate.getFullYear()}</Text>
-                    </View>
+                    <Pressable
+                        className='flex-1 p-2'
+                        onPress={() => router.push({
+                            pathname: './movies/[id]',
+                            params: { id: item.id.toString() },
+                        })}
+                    >
+                        <View className='flex-1 p-2'>
+                            <Image
+                                source={{ uri: item.poster }}
+                                className='w-full aspect-[2/3] rounded-xl' />
+                            <Text className='font-bold'>{item.title}</Text>
+                            <Text className='text-slate-400'>{item.releaseDate.getFullYear()}</Text>
+                        </View>
+                    </Pressable>
                 )}
             />
         </View>
