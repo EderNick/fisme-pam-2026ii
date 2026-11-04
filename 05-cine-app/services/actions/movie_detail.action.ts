@@ -4,7 +4,7 @@ import { movieApi } from "../api/movie-api";
 
 export const movieDetailAction = async (id: number) => {
     try {
-        const { data } = await movieApi.get<TMDBMovieDetailResponse>(`/${id}`);
+        const { data } = await movieApi.get<TMDBMovieDetailResponse>(`/movie/${id}`);
         return MovieMapper.fromTMDBMovieDetailToMovieDetail(data);
     } catch (error) {
 
